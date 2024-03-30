@@ -22,15 +22,15 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>1.0</string>
 	<key>CFBundleName</key>
-	<string>trueGlyph</string>
+	<string>True Glyph</string>
 	<key>CFBundleShortVersionString</key>
 	<string>0.1</string> <!-- 1.0 -->
 	<key>CFBundleVersion</key>
 	<string>6</string> <!-- 123 -->
 	<key>UpdateFeedURL</key>
-	<string>https://raw.githubusercontent.com/wsimm/trueglyph/main/trueglyph.glyphsPalette/Contents/Info.plist</string>
+	<string>https://raw.githubusercontent.com/wsimm/True-Glyph/main/True-Glyph.glyphsPalette/Contents/Info.plist</string>
 	<key>productPageURL</key>
-	<string>https://github.com/wsimm/trueglyph</string>
+	<string>https://github.com/wsimm/True-Glyph</string>
 	<key>productReleaseNotes</key>
 	<string>GlyphLook is a plugin for designers that exports detailed designs from GlyphsApp, revealing the intricate work behind each glyph, logo, or icon. It enhances presentations, educates clients about the design process, and allows for easy recoloring in Illustrator to match any branding or presentation needs. This tool elevates design work and bridges the gap between designer efforts and client appreciation.</string>
 	<key>NSHumanReadableCopyright</key>
