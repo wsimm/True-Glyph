@@ -1,7 +1,7 @@
 # True Glyph
 
 ![True Glyph Screenshot](trueglyphScreenshot.png)
-![True Glyph Screenshot](ture gylhp-05.png)
+![True Glyph Screenshot](trueglyphScreenshot2.png)
 
 **Version:** 0.1
 
