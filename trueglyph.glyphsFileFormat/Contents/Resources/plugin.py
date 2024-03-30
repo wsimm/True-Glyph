@@ -83,7 +83,7 @@ class trueglyph(FileFormatPlugin):
             "auto", "Random File Name", callback=self.activeRandomFileName_,  value=Glyphs.defaults[randomFileNamePref])
         self.w.group.OpenFileCheckBox = CheckBox(
             "auto", "Reveal file in Finder", callback=self.activeOpenFile_, value=Glyphs.defaults[openfilePref])
-        self.w.group.sliderLabel = TextBox("auto", 'Change Handel Size')
+        self.w.group.sliderLabel = TextBox("auto", 'Change Handle Size')
         
         
       
