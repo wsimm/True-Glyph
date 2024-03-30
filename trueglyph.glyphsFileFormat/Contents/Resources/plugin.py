@@ -37,7 +37,7 @@ zoomPref = 'com.wasim.trueglyph.zoom'
 zoomPreviousPref = 'com.wasim.trueglyph.zoomprevious'
 exportmodePref = 'com.wasim.trueglyph.exportmode'
 exportPreviewPref = 'com.wasim.trueglyph.exportpreview'
-exportmodeList = ["Black White", "Glyph Look", "Current Look"]
+exportmodeList = ["Black White", "Current Look ", "Glyph Look"]
 
 
 class ExportViewController(NSViewController):
@@ -74,7 +74,7 @@ class trueglyph(FileFormatPlugin):
         self.viewController = ExportViewController.new()
         self.viewController.setView_(self.w.group._nsObject)
 
- 
+
         self.w.group.sliderValueTextBox = TextBox("auto", "Zoom Level: 1.0")
         self.w.group.zoom2 = Slider('auto', callback=self.zoom_, minValue=0.01, maxValue=5, value=Glyphs.defaults[zoomPref])
 
@@ -84,9 +84,9 @@ class trueglyph(FileFormatPlugin):
         self.w.group.OpenFileCheckBox = CheckBox(
             "auto", "Reveal file in Finder", callback=self.activeOpenFile_, value=Glyphs.defaults[openfilePref])
         self.w.group.sliderLabel = TextBox("auto", 'Change Handle Size')
-        
-        
-      
+
+
+
 
         self.w.group.bannerImageView = ImageView("auto")
         dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -175,15 +175,15 @@ class trueglyph(FileFormatPlugin):
 
     @objc.python_method
     def change_preview_image(self):
-        import os 
+        import os
         dir_path = os.path.dirname(os.path.realpath(__file__))
         # self.w.group.imageView3.setImage(imagePath=dir_path+'/look-current.pdf')
         if str(Glyphs.defaults[exportmodePref]) == "0":
             self.w.group.imageView3.setImage(imagePath=dir_path+'/look-blackwhite.pdf')
         if Glyphs.defaults[exportmodePref] == 1:
-            self.w.group.imageView3.setImage(imagePath=dir_path+'/look-glyphs.pdf')
-        if Glyphs.defaults[exportmodePref] == 2:
             self.w.group.imageView3.setImage(imagePath=dir_path+'/look-current.pdf')
+        if Glyphs.defaults[exportmodePref] == 2:
+            self.w.group.imageView3.setImage(imagePath=dir_path+'/look-glyphs.pdf')
 
     def clearFeedBack(self):
         self.w.group.FeedbackLabel.set('')
@@ -192,7 +192,7 @@ class trueglyph(FileFormatPlugin):
     def activeOpenFile_(self, sender):
         Glyphs.defaults[openfilePref] = bool(sender.get())
         self.updateFeedBackTextField()
-    
+
     # Example function. You may delete it
     @objc.python_method
     def updateFeedBackTextField(self):
@@ -230,7 +230,7 @@ class trueglyph(FileFormatPlugin):
                     for path in newLayer.paths:
                         # tab = Glyphs.font.newTab('/exportedPreviewPleaseDeleteit')
                         Glyphs.font.tool = 'GlyphsToolDraw'
-            # print('currenlayersCount:',currenlayersCount,"== index",index+1)           
+            # print('currenlayersCount:',currenlayersCount,"== index",index+1)
             if currenlayersCount == index+1:
                 # print(index, currenlayersCount)
                 self.updatezoom(self)
@@ -274,7 +274,7 @@ class trueglyph(FileFormatPlugin):
                         if self.updatezoom(self):
                             Glyphs.font.currentTab.saveToPDF(filepath)
                 if Glyphs.defaults[openfilePref]:
-                    subprocess.call(["open", "-R", filepath])   
+                    subprocess.call(["open", "-R", filepath])
                 Glyphs.font.currentTab.saveToPDF(filepath)
                 del(Glyphs.font.glyphs['exportedPreviewPleaseDeleteit'])
                 return (True, 'The export of was successful.')
