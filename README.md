@@ -7,6 +7,12 @@
 
 ## Overview
 True Glyph is a plugin for designers that exports detailed designs from GlyphsApp, revealing the intricate work behind each glyph, logo, or icon. It enhances presentations, educates clients about the design process, and allows for easy recoloring in Illustrator to match any branding or presentation needs. This tool elevates design work and bridges the gap between designer efforts and client appreciation.
+This plugin is available for personal use. For commercial use, please purchase a license from [here](https://payhip.com/b/oyVui).
+
+
+
+
+
 
 ## Features
 - Export designs with high fidelity, including all guides, anchors, and nodes.
