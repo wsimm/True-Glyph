@@ -219,23 +219,30 @@ class trueglyph(FileFormatPlugin):
             Glyphs.font.glyphs.append(GSGlyph('exportedPreviewPleaseDeleteit'))
         newLayer = Glyphs.font.glyphs['exportedPreviewPleaseDeleteit'].layers[0]
         newLayer.clear()
-        currenlayersCount = len( Glyphs.font.currentTab.composedLayers)
+        currenlayersCount = len(Glyphs.font.currentTab.composedLayers)
         LastCount = len(Glyphs.font.currentTab.composedLayers)-1
-        for index,glyphs in enumerate(reversed(Glyphs.font.currentTab.composedLayers)):
+
+        # Adjust the order based on the direction
+        layersToProcess = Glyphs.font.currentTab.composedLayers
+        if Glyphs.font.currentTab.direction == 2:  # Reverse only for top-to-bottom scripts
+            layersToProcess = reversed(layersToProcess)
+
+        for index, glyphs in enumerate(layersToProcess):
             newLayer.shapes.append(GSComponent(glyphs.parent.name))
             if str(LastCount) == str(index):
                 while len(newLayer.components) > 0:
                     newLayer.decomposeComponents()
                     newLayer.correctPathDirection()
                     for path in newLayer.paths:
-                        # tab = Glyphs.font.newTab('/exportedPreviewPleaseDeleteit')
                         Glyphs.font.tool = 'GlyphsToolDraw'
-            # print('currenlayersCount:',currenlayersCount,"== index",index+1)
             if currenlayersCount == index+1:
-                # print(index, currenlayersCount)
                 self.updatezoom(self)
                 return True
-                Glyphs.font.currentTab.close()
+
+
+
+
+
     @objc.python_method
     def GSEditViewController_saveToPDF(self, path, rect=None):
         if rect is None:
